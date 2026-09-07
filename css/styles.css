@@ -235,19 +235,22 @@ section{ padding: 80px 0; }
 }
 .hero-bolt{ width: 100%; height: 100%; }
 
-/* ===== Services ===== */
+/* ===== Services (bento grid) ===== */
 .services{ background: var(--white); }
 .service-grid{
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+  grid-auto-rows: minmax(150px, auto);
+  gap: 20px;
 }
 .service-card{
   background: var(--gray-50);
   border: 1px solid var(--gray-200);
   border-radius: var(--radius);
-  padding: 32px 24px;
+  padding: 28px 24px;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
+  display: flex;
+  flex-direction: column;
 }
 .service-card:hover{
   transform: translateY(-4px);
@@ -264,32 +267,94 @@ section{ padding: 80px 0; }
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
+  flex-shrink: 0;
 }
 .service-icon svg{ width: 26px; height: 26px; }
 .service-card h3{ font-size: 1.1rem; margin-bottom: 0.4em; }
 .service-card p{ color: var(--gray-500); margin: 0; font-size: 0.95rem; }
 
-/* ===== Why Us ===== */
+/* Bento placement: card 1 (Inverters & UPS) is the featured 2x2 tile,
+   card 8 (Consumer Electronics) spans the last row's two columns. */
+.service-grid .service-card:nth-child(1){ grid-column: 1 / 3; grid-row: 1 / 3; }
+.service-grid .service-card:nth-child(2){ grid-column: 3; grid-row: 1; }
+.service-grid .service-card:nth-child(3){ grid-column: 4; grid-row: 1; }
+.service-grid .service-card:nth-child(4){ grid-column: 3; grid-row: 2; }
+.service-grid .service-card:nth-child(5){ grid-column: 4; grid-row: 2; }
+.service-grid .service-card:nth-child(6){ grid-column: 1; grid-row: 3; }
+.service-grid .service-card:nth-child(7){ grid-column: 2; grid-row: 3; }
+.service-grid .service-card:nth-child(8){ grid-column: 3 / 5; grid-row: 3; }
+
+.service-card.featured{
+  background: var(--blue-dark);
+  border-color: transparent;
+  color: var(--white);
+  justify-content: center;
+}
+.service-card.featured .service-icon{
+  background: var(--amber);
+  color: var(--navy);
+  width: 64px;
+  height: 64px;
+}
+.service-card.featured .service-icon svg{ width: 32px; height: 32px; }
+.service-card.featured h3{ color: var(--white); font-size: 1.4rem; }
+.service-card.featured p{ color: #cbd5e1; font-size: 1rem; max-width: 34ch; }
+
+.service-card.wide{ flex-direction: row; align-items: center; gap: 20px; }
+.service-card.wide .service-icon{ margin-bottom: 0; }
+
+/* ===== Why Us (editorial split) ===== */
 .why-us{ background: var(--gray-50); }
-.why-grid{
+.why-inner{
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 56px;
+  align-items: center;
 }
-.why-card{
-  background: var(--white);
-  border-radius: var(--radius);
-  padding: 28px 22px;
-  box-shadow: var(--shadow);
-  text-align: center;
+.why-panel{ position: relative; }
+.why-panel-sub{ color: var(--gray-500); font-size: 1.02rem; max-width: 40ch; }
+.why-panel-badge{
+  margin-top: 24px;
+  width: 88px;
+  height: 88px;
+  border-radius: 20px;
+  background: var(--blue-dark);
+  color: var(--amber);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-lg);
 }
-.why-card h3{ font-size: 1.05rem; }
-.why-card p{ color: var(--gray-500); font-size: 0.92rem; margin: 0; }
+.why-panel-badge svg{ width: 40px; height: 40px; }
+
+.why-list{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.why-list li{
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--gray-200);
+}
+.why-list li:first-child{ padding-top: 0; }
+.why-list li:last-child{ border-bottom: none; }
+.why-num{
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--blue);
+  flex-shrink: 0;
+  width: 44px;
+}
+.why-list h3{ font-size: 1.05rem; margin-bottom: 0.3em; }
+.why-list p{ color: var(--gray-500); font-size: 0.95rem; margin: 0; }
 
 /* ===== About ===== */
 .about-inner{
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: 0.9fr 1.1fr;
   gap: 48px;
   align-items: center;
 }
@@ -418,10 +483,14 @@ section{ padding: 80px 0; }
 
 /* ===== Responsive ===== */
 @media (max-width: 900px){
-  .service-grid, .why-grid, .contact-grid{ grid-template-columns: repeat(2, 1fr); }
-  .hero-inner, .about-inner{ grid-template-columns: 1fr; }
-  .about-art{ order: -1; }
+  .contact-grid{ grid-template-columns: repeat(2, 1fr); }
+  .hero-inner, .about-inner, .why-inner{ grid-template-columns: 1fr; }
   .contact-layout{ grid-template-columns: 1fr; }
+
+  /* Collapse the bento grid to a simple single-column stack */
+  .service-grid{ grid-template-columns: 1fr; grid-auto-rows: auto; }
+  .service-grid .service-card{ grid-column: auto; grid-row: auto; }
+  .service-card.wide{ flex-direction: column; align-items: flex-start; }
 }
 
 @media (max-width: 720px){
@@ -444,6 +513,6 @@ section{ padding: 80px 0; }
 }
 
 @media (max-width: 560px){
-  .service-grid, .why-grid, .contact-grid, .contact-layout .contact-grid{ grid-template-columns: 1fr; }
+  .contact-grid, .contact-layout .contact-grid{ grid-template-columns: 1fr; }
   section{ padding: 56px 0; }
 }
