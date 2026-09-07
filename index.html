@@ -227,28 +227,51 @@
     <div class="section-head">
       <p class="eyebrow">Get In Touch</p>
       <h2>Contact Us</h2>
-      <p class="section-sub">Have equipment that needs repair? Reach out and we'll help.</p>
+      <p class="section-sub">Send us your question below, or reach out directly.</p>
     </div>
 
-    <div class="contact-grid">
-      <div class="contact-card">
-        <h3>Phone</h3>
-        <p>
-          <a href="tel:+923004689475">+92 300 4689475</a><br>
-          <a href="tel:+923134689475">+92 313 4689475</a>
-        </p>
-      </div>
-      <div class="contact-card">
-        <h3>WhatsApp</h3>
-        <p><a href="https://wa.me/923004689475" target="_blank" rel="noopener">Chat with us</a></p>
-      </div>
-      <div class="contact-card">
-        <h3>Email</h3>
-        <p><a href="mailto:fameengineering5@gmail.com">fameengineering5@gmail.com</a></p>
-      </div>
-      <div class="contact-card">
-        <h3>Address</h3>
-        <p>Ravi Block Rd, near Masjid Ibrahim,<br>Shadman Town, Sahiwal</p>
+    <div class="contact-layout">
+      <!-- TODO: sign up free at formspree.io, create a form, and replace YOUR_FORM_ID
+           below with your real endpoint (see README.md for exact steps) -->
+      <form class="contact-form" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div class="form-row">
+          <label for="cf-name">Name</label>
+          <input type="text" id="cf-name" name="name" autocomplete="name" required>
+        </div>
+        <div class="form-row">
+          <label for="cf-contact">Phone or Email</label>
+          <input type="text" id="cf-contact" name="contact" autocomplete="tel" required>
+        </div>
+        <div class="form-row">
+          <label for="cf-message">What do you need help with?</label>
+          <textarea id="cf-message" name="message" rows="5" required></textarea>
+        </div>
+        <input type="hidden" name="_subject" value="New enquiry from Fame Engineering website">
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="form-hp">
+        <button type="submit" class="btn btn-primary">Send Message</button>
+        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+      </form>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>Phone</h3>
+          <p>
+            <a href="tel:+923004689475">+92 300 4689475</a><br>
+            <a href="tel:+923134689475">+92 313 4689475</a>
+          </p>
+        </div>
+        <div class="contact-card">
+          <h3>WhatsApp</h3>
+          <p><a href="https://wa.me/923004689475" target="_blank" rel="noopener">Chat with us</a></p>
+        </div>
+        <div class="contact-card">
+          <h3>Email</h3>
+          <p><a href="mailto:fameengineering5@gmail.com">fameengineering5@gmail.com</a></p>
+        </div>
+        <div class="contact-card">
+          <h3>Address</h3>
+          <p>Ravi Block Rd, near Masjid Ibrahim,<br>Shadman Town, Sahiwal</p>
+        </div>
       </div>
     </div>
   </div>
