@@ -18,10 +18,11 @@ Real business details from the letterhead (phone numbers, address, email,
 proprietor name, services list, and logo) are already filled in. What's
 still left:
 
-- [ ] **Contact form** — activate it by creating a free Formspree endpoint
-      (see "Contact form setup" below). Until you do this, visitors who use
-      the form will see an error message pointing them to phone/WhatsApp
-      instead — the rest of the site is unaffected.
+- [x] Contact form — wired to Formspree (`https://formspree.io/f/xgaeneny`).
+      **One thing left:** Formspree emails a confirmation link the first time
+      a real submission comes in — someone needs to submit the form once and
+      click that confirmation link (check `fameengineering5@gmail.com`,
+      including spam) before submissions start arriving normally.
 - [ ] Shop photo — in the About section, replace the dashed placeholder box
       with a real photo, e.g. `<img src="images/shop.jpg" alt="Fame Engineering workshop">`
 - [ ] Opening hours — not on the letterhead; add a line to the Address card
@@ -69,24 +70,16 @@ described in GitHub's Pages custom domain docs, and set it under
 ## Contact form setup
 
 GitHub Pages only serves static files — there's no server to receive form
-submissions directly. The Contact section's form (`index.html`, "Send Message")
-is wired to [Formspree](https://formspree.io), a free service that emails
-submissions straight to your inbox. To activate it:
+submissions directly. The Contact section's form (`index.html`, "Send a
+Message") is wired to [Formspree](https://formspree.io), a free service that
+emails submissions straight to your inbox. It's already connected to
+`https://formspree.io/f/xgaeneny`, tied to `fameengineering5@gmail.com`.
 
-1. Go to [formspree.io](https://formspree.io) and sign up free (using
-   `fameengineering5@gmail.com` makes sense, so submissions land in the same
-   inbox already on the letterhead).
-2. Click **New Form**, give it a name (e.g. "Fame Engineering Website"), and
-   set the destination email if asked.
-3. Formspree gives you an endpoint URL like `https://formspree.io/f/abcdwxyz`.
-4. In `index.html`, find:
-   ```html
-   <form class="contact-form" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-   ```
-   and replace `YOUR_FORM_ID` with your real form ID from step 3.
-5. Commit and push the change. On the free plan Formspree sends a
-   confirmation email the first time — click the link in it to activate the
-   form, then submissions will start arriving normally.
+**To finish activating it:** Formspree requires one real submission to be
+confirmed before it starts delivering normally. Fill out the form on the live
+site once (any test message works), then check `fameengineering5@gmail.com`
+(including spam/promotions) for a confirmation email from Formspree and click
+the link in it. After that, every submission will land in that inbox.
 
 The free plan allows 50 submissions/month, which is plenty for a shop's
 contact form. The form has spam protection built in (a hidden honeypot
@@ -94,3 +87,9 @@ field) and shows a success or error message on the page without reloading.
 If Formspree is ever down or unreachable, the form shows an error message
 pointing visitors to the phone/WhatsApp links instead, so they're never
 stuck with no way to reach you.
+
+If you ever need to point the form at a different Formspree account or form,
+just replace the URL in `index.html`:
+```html
+<form class="contact-form" id="contactForm" action="https://formspree.io/f/xgaeneny" method="POST">
+```
