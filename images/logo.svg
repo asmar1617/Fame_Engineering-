@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Fame Engineering logo">
-  <circle cx="60" cy="60" r="58" fill="#1e3a8a"/>
-  <circle cx="60" cy="60" r="58" fill="none" stroke="#2563eb" stroke-width="4"/>
-  <path d="M65 28 L40 66 H56 L52 96 L82 54 H64 Z" fill="#f59e0b"/>
-  <text x="60" y="112" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#ffffff" letter-spacing="1">FAME ENG.</text>
-</svg>

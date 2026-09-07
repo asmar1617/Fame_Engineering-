@@ -9,22 +9,15 @@ repair). Plain HTML/CSS/JS — no build step, no framework, no server required.
 index.html        Main page (all sections)
 css/styles.css     All styling
 js/main.js         Mobile menu + small helpers
-images/logo.svg    Placeholder logo (swap with your real logo, same filename)
+images/logo.jpg    Real shop logo (used in header + favicon)
 ```
 
 ## Before you launch — fill these in
 
 Real business details from the letterhead (phone numbers, address, email,
-proprietor name, and the full services list) are already filled in. What's
+proprietor name, services list, and logo) are already filled in. What's
 still left:
 
-- [ ] Logo — replace `images/logo.svg` with your real logo file (the artwork
-      you shared with the multimeter/PCB icon and "FAME Engineering Workshop"
-      text). Save it as `images/logo.png` (or `.svg`) and update the two
-      `src="images/logo.svg"` references in `index.html` (header + favicon
-      `<link>`) to point to it. Once the real logo is in place, consider
-      simplifying the header's `<span class="brand-name">` text since the
-      logo artwork already includes the shop name and tagline.
 - [ ] Shop photo — in the About section, replace the dashed placeholder box
       with a real photo, e.g. `<img src="images/shop.jpg" alt="Fame Engineering workshop">`
 - [ ] Opening hours — not on the letterhead; add a line to the Address card
@@ -53,14 +46,13 @@ Then visit `http://localhost:8000`.
 
 ## Hosting on GitHub Pages
 
-1. Create a new repository on GitHub (e.g. `fame-engineering-website`). Don't
-   initialize it with a README — this folder already has one.
+This folder is already a git repository (branch `main`, committed). To publish it:
+
+1. Create a new, empty repository on GitHub (e.g. `fame-engineering-website`).
+   Don't initialize it with a README, license, or .gitignore — this folder
+   already has those.
 2. From this folder, run:
    ```
-   git init
-   git add .
-   git commit -m "Initial site"
-   git branch -M main
    git remote add origin https://github.com/<your-username>/<your-repo>.git
    git push -u origin main
    ```
