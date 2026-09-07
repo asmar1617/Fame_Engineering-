@@ -306,6 +306,63 @@ section{ padding: 80px 0; }
 .service-card.wide{ flex-direction: row; align-items: center; gap: 20px; }
 .service-card.wide .service-icon{ margin-bottom: 0; }
 
+/* ===== Brands marquee ===== */
+.brands{
+  padding: 40px 0;
+  background: var(--white);
+  border-top: 1px solid var(--gray-200);
+  border-bottom: 1px solid var(--gray-200);
+}
+.brands-label{
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--gray-500);
+  margin: 0 0 20px;
+}
+.marquee{
+  overflow: hidden;
+  width: 100%;
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+  mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+}
+.marquee-track{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: max-content;
+  animation: marquee-scroll 32s linear infinite;
+}
+.marquee:hover .marquee-track{ animation-play-state: paused; }
+.brand-name{
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--blue-dark);
+  white-space: nowrap;
+  opacity: 0.75;
+}
+.brand-dot{
+  color: var(--gray-200);
+  font-size: 1.3rem;
+}
+
+@keyframes marquee-scroll{
+  from{ transform: translateX(0); }
+  to{ transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .marquee-track{ animation: none; }
+  .marquee{ overflow-x: auto; }
+}
+
+@media (max-width: 560px){
+  .brand-name, .brand-dot{ font-size: 1.05rem; }
+  .marquee-track{ animation-duration: 20s; gap: 14px; }
+}
+
 /* ===== Why Us (editorial split) ===== */
 .why-us{ background: var(--gray-50); }
 .why-inner{

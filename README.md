@@ -33,6 +33,15 @@ still left:
 - [ ] Optional: verify the About section text (proprietor name, service
       summary) reads the way you want — it's based on the letterhead but
       written in website voice
+- [ ] **Brands marquee** — the scrolling "Brands We Repair" section (between
+      Services and Why Us) currently lists common Pakistani inverter/UPS/
+      electronics brand names (Inverex, Homage, Luminous, Su-Kam, APC, Kstar,
+      Osaka, PEL, Dawlance, Haier, Metrix, Solar King) as **placeholders** —
+      these were never confirmed as brands you actually service. In
+      `index.html`, find `<!-- ===== Brands (scrolling marquee) ===== -->`
+      and replace the names in **both** halves of `.marquee-track` with your
+      real list (both halves must stay identical and in the same order for
+      the loop to stay seamless).
 
 ## Running locally
 
