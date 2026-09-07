@@ -614,17 +614,61 @@ section{ padding: 80px 0; }
 .site-footer{
   background: var(--navy);
   color: var(--gray-200);
-  padding: 28px 0;
+  padding: 64px 0 0;
 }
-.footer-inner{
+.footer-grid{
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 48px;
+}
+.footer-brand-link{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--white);
+}
+.footer-brand-link .brand-name{ color: var(--white); }
+.footer-tagline{
+  margin: 16px 0 0;
+  color: var(--gray-500);
+  font-size: 0.92rem;
+  max-width: 32ch;
+}
+.footer-col h3{
+  color: var(--white);
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 18px;
+}
+.footer-links{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.footer-links a{ color: var(--gray-300, #cbd5e1); font-size: 0.92rem; }
+.footer-links a:hover{ color: var(--white); }
+.footer-address{ color: var(--gray-300, #cbd5e1); font-size: 0.92rem; margin: 0; }
+
+.footer-bottom{
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   gap: 12px;
+  padding: 24px 0;
+  /* Extra right padding keeps "Back to top" clear of the fixed WhatsApp
+     button, whose left edge always sits ~56px inside the container's
+     right edge (56px button width) regardless of viewport width. */
+  padding-right: 96px;
+  border-top: 1px solid rgba(255,255,255,0.1);
 }
-.footer-inner p{ margin: 0; font-size: 0.9rem; }
-.back-to-top{ color: var(--gray-200); font-size: 0.9rem; margin-right: 64px; }
+.footer-bottom p{ margin: 0; font-size: 0.85rem; color: var(--gray-500); }
+.back-to-top{ color: var(--gray-200); font-size: 0.9rem; }
 .back-to-top:hover{ color: var(--white); }
 
 /* ===== Floating WhatsApp button ===== */
@@ -657,6 +701,8 @@ section{ padding: 80px 0; }
   .service-grid{ grid-template-columns: 1fr; grid-auto-rows: auto; }
   .service-grid .service-card{ grid-column: auto; grid-row: auto; }
   .service-card.wide{ flex-direction: column; align-items: flex-start; }
+
+  .footer-grid{ grid-template-columns: repeat(2, 1fr); gap: 32px; }
 }
 
 @media (max-width: 720px){
@@ -681,4 +727,5 @@ section{ padding: 80px 0; }
 @media (max-width: 560px){
   .contact-grid, .contact-layout .contact-grid{ grid-template-columns: 1fr; }
   section{ padding: 56px 0; }
+  .footer-grid{ grid-template-columns: 1fr; gap: 32px; }
 }
