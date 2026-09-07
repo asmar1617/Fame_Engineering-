@@ -14,19 +14,27 @@ images/logo.svg    Placeholder logo (swap with your real logo, same filename)
 
 ## Before you launch — fill these in
 
-Everything below is marked `TODO` inside `index.html`. Use your browser's
-Find (Ctrl+F) for `TODO` to jump to each one.
+Real business details from the letterhead (phone numbers, address, email,
+proprietor name, and the full services list) are already filled in. What's
+still left:
 
-- [ ] Phone number — replace `+920000000000` (appears in header, hero, contact section)
-- [ ] WhatsApp number — replace `920000000000` in the `wa.me` links (hero, contact, floating button).
-      Use country code with no `+` and no leading `0`, e.g. Pakistan mobile `03001234567` → `923001234567`
-- [ ] Email address — replace `info@example.com`
-- [ ] Shop address and opening hours — replace `[SHOP ADDRESS]` / `[OPENING HOURS]`
-- [ ] About section paragraph — replace the placeholder text with your shop's real story
-- [ ] Logo — replace `images/logo.svg` with your real logo (keep the filename, or update
-      the `src="images/logo.svg"` references in `index.html` if you use a different name/type)
-- [ ] Shop photo — in the About section, replace the dashed placeholder box with a real
-      photo, e.g. `<img src="images/shop.jpg" alt="Fame Engineering workshop">`
+- [ ] Logo — replace `images/logo.svg` with your real logo file (the artwork
+      you shared with the multimeter/PCB icon and "FAME Engineering Workshop"
+      text). Save it as `images/logo.png` (or `.svg`) and update the two
+      `src="images/logo.svg"` references in `index.html` (header + favicon
+      `<link>`) to point to it. Once the real logo is in place, consider
+      simplifying the header's `<span class="brand-name">` text since the
+      logo artwork already includes the shop name and tagline.
+- [ ] Shop photo — in the About section, replace the dashed placeholder box
+      with a real photo, e.g. `<img src="images/shop.jpg" alt="Fame Engineering workshop">`
+- [ ] Opening hours — not on the letterhead; add a line to the Address card
+      in the Contact section if you want hours displayed
+- [ ] Confirm `+92 300 4689475` is the right number for the WhatsApp links
+      (hero, contact, floating button) — currently assumed since it's listed
+      first on the letterhead
+- [ ] Optional: verify the About section text (proprietor name, service
+      summary) reads the way you want — it's based on the letterhead but
+      written in website voice
 
 ## Running locally
 
